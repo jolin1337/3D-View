@@ -1,0 +1,689 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"no",
+				"normalize"
+			],
+			[
+				"rende",
+				"renderer"
+			],
+			[
+				"Ren",
+				"Renderer"
+			],
+			[
+				"poin",
+				"pointInRay"
+			],
+			[
+				"co",
+				"context"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
+				"pro",
+				"project"
+			],
+			[
+				"curso",
+				"cursor_location"
+			],
+			[
+				"cont",
+				"continue"
+			],
+			[
+				"Ver",
+				"VertexC"
+			],
+			[
+				"act",
+				"activeHandle"
+			],
+			[
+				"acti",
+				"activeHandle"
+			],
+			[
+				"active",
+				"activeSpline"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"obj",
+				"objecmode"
+			],
+			[
+				"activeHan",
+				"activeHandles"
+			],
+			[
+				"str",
+				"stroke"
+			],
+			[
+				"ve",
+				"vert"
+			],
+			[
+				"ed",
+				"edgeSelect"
+			],
+			[
+				"edgeSelec",
+				"edgeSelected"
+			],
+			[
+				"ren",
+				"render"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"st",
+				"strokeStyle"
+			],
+			[
+				"in",
+				"innerHeight"
+			],
+			[
+				"inn",
+				"innerHeight"
+			],
+			[
+				"sto",
+				"strokeStyle"
+			],
+			[
+				"vertexS",
+				"vertexSelect"
+			],
+			[
+				"face",
+				"faceSelected"
+			],
+			[
+				"vert",
+				"vertices"
+			],
+			[
+				"rot",
+				"rot_start"
+			],
+			[
+				"ac",
+				"active_vertices"
+			],
+			[
+				"activ",
+				"active_vertices"
+			],
+			[
+				"mou",
+				"mouse"
+			],
+			[
+				"ro",
+				"rot_start"
+			],
+			[
+				"cl",
+				"clientY"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"sq",
+				"sqdist2"
+			],
+			[
+				"proj",
+				"proj"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"ver",
+				"vertices"
+			],
+			[
+				"Fac",
+				"Faces"
+			],
+			[
+				"cou",
+				"count_face"
+			],
+			[
+				"Face",
+				"Face_indices"
+			],
+			[
+				"Fa",
+				"Face_indices"
+			],
+			[
+				"Object",
+				"Object3D"
+			],
+			[
+				"fil",
+				"fileData"
+			],
+			[
+				"drop",
+				"dropZone"
+			],
+			[
+				"fill",
+				"fillStyle"
+			],
+			[
+				"inne",
+				"innerWidth"
+			],
+			[
+				"clien",
+				"clientY"
+			],
+			[
+				"proje",
+				"project"
+			],
+			[
+				"view",
+				"view3D"
+			],
+			[
+				"visi",
+				"visible"
+			],
+			[
+				"getEle",
+				"getElementsByTagName"
+			],
+			[
+				"objects",
+				"objects3D"
+			],
+			[
+				"se",
+				"selected"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"clie",
+				"clientX"
+			],
+			[
+				"sub",
+				"substr"
+			],
+			[
+				"stro",
+				"strokeStyle"
+			],
+			[
+				"fu",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 14204,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src2/ArcBallJS2.js",
+			"settings":
+			{
+				"buffer_size": 12897,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src2/renderer.js",
+			"settings":
+			{
+				"buffer_size": 37249,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/media/TREKSTOR/Hemsidor/three/src/renderers/CanvasRenderer.js",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src2/worker_Classes.js",
+			"settings":
+			{
+				"buffer_size": 26612,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src2/themesSource.js",
+			"settings":
+			{
+				"buffer_size": 9404,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"rot13 encode/decode"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 193.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/media/TREKSTOR/Hemsidor/three/src/materials/Texture.js",
+		"/media/TREKSTOR/Hemsidor/three/src/materials/mappings/UVMapping.js",
+		"/media/TREKSTOR/Hemsidor/three/examples/geometry_earth.html",
+		"/media/TREKSTOR/Hemsidor/three/src/extras/ImageUtils.js",
+		"/media/TREKSTOR/Hemsidor/three/src/objects/Mesh.js",
+		"/media/TREKSTOR/Hemsidor/three/src/materials/mappings/CubeReflectionMapping.js",
+		"/media/TREKSTOR/Hemsidor/three/src/renderers/Projector.js",
+		"/media/TREKSTOR/Hemsidor/three/src/renderers/CanvasRenderer.js",
+		"/home/johannes/blender.html/blenderView/experiment/src2/Static_Prototypes.js",
+		"/home/johannes/blender.html/blenderView/experiment/src2/worker_Classes.js",
+		"/home/johannes/blender.html/blenderView/experiment/worker.js",
+		"/home/johannes/blender.html/blenderView/experiment/webworkers.html",
+		"/home/johannes/github/opgl-Test-Projects/previewModels/test.obj",
+		"/media/TREKSTOR/Hemsidor/three/src/extras/primitives/obj_File.js",
+		"/home/johannes/blender.html/blenderView/experiment/src2/themesSource.js",
+		"/home/johannes/blender.html/blenderView/experiment/src2/renderer.js",
+		"/home/johannes/blender.html/blenderView/experiment/src2/ArcBallJS2.js",
+		"/home/johannes/blender.html/blenderView/experiment/index.php",
+		"/home/johannes/Documents/APU/define.tex",
+		"/home/johannes/Documents/APU/APU.tex",
+		"/home/johannes/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/johannes/.config/sublime-text-2/Packages/User/hello_world.py",
+		"/home/johannes/.config/sublime-text-2/Packages/User/encode.py",
+		"/home/johannes/.config/sublime-text-2/Packages/Default/Default.sublime-commands",
+		"/home/johannes/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/johannes/.config/sublime-text-2/Packages/User/rot13plugin.py",
+		"/home/johannes/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
+		"/home/johannes/.config/sublime-text-2/Packages/User/Global.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Circle",
+			"projectScene",
+			"renderFace3",
+			"texturePath",
+			"renderFace3",
+			"texturePath",
+			"drawImage",
+			");",
+			".i ",
+			"lights",
+			"acitve",
+			"edgeSelected",
+			"TODO",
+			"ctx",
+			"console",
+			"scale",
+			"console",
+			"+",
+			"getSelected",
+			"console",
+			"project",
+			"clear",
+			"width",
+			"innerWidth",
+			"computeSphereVector",
+			"prop",
+			"conso",
+			"face_numbers",
+			"stl_data_Test",
+			"parse_faceread",
+			"init",
+			"load",
+			"activeVertex",
+			"acitve",
+			"selection",
+			"mode",
+			"arguments",
+			"length",
+			"prototype",
+			"Rendering",
+			"function",
+			"			}",
+			"prototype",
+			"prop",
+			"props",
+			"Object3D",
+			"delta_quaternion",
+			"can",
+			"~",
+			"dictionary"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"-",
+			"face_indices",
+			"data_Test"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.php",
+					"settings":
+					{
+						"buffer_size": 14204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								576,
+								576
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src2/ArcBallJS2.js",
+					"settings":
+					{
+						"buffer_size": 12897,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6053,
+								6053
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2644.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src2/renderer.js",
+					"settings":
+					{
+						"buffer_size": 37249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36666,
+								36673
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 15570.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/media/TREKSTOR/Hemsidor/three/src/renderers/CanvasRenderer.js",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7435.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src2/worker_Classes.js",
+					"settings":
+					{
+						"buffer_size": 26612,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4185,
+								4185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "src2/themesSource.js",
+					"settings":
+					{
+						"buffer_size": 9404,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9400,
+								9400
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 29.0,
+						"translation.y": 5805.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.78767975816,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 276.0,
+	"status_bar_visible": true
+}

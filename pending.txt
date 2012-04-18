@@ -1,0 +1,8 @@
+Pending stuff:
+1, selecting vertices in edit mode(colorize)
+2, grid draw with and without xyz axis
+3, mouse select vertices/handles in edit mode
+3.5, optimization
+4, get going with z ordering in edit mode
+5, intersection with planes
+5.5, optimization

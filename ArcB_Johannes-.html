@@ -1,0 +1,78 @@
+<html>
+<head>
+<link type="text/css" href="../jquery_Temp_Theme/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="../jquery_Temp_Theme/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="../jquery_Temp_Theme/js/jquery-ui-1.8.14.custom.min.js"></script>
+<script type="text/javascript">
+	function addError(text){
+		$('#inf').html(function(i,c){
+			return '<br/><div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">'+
+				'<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>'+
+				'<span>'+text+'</span>'+
+			'</p></div>'+c
+		});
+	}
+	function addInfo(text){
+		$('#inf').html(function(i,c){
+			return '<br/><div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;">'+
+				'<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>'+
+				'<span>'+text+'</span>'+
+			'</p></div>'+c
+		});
+	}
+	function edit_de(text,id){
+		$('#inf div:eq('+id+') p span:eq(1)').html(text);
+	}
+	function clear_de(){
+		$('#inf').empty();
+	}
+	$(function(){
+
+
+		// Dialog			
+		$('#dialog').dialog({
+			autoOpen: true,
+			position:['right','top'],
+			dragable:true
+		});
+		location.href.split('?debug').length>1?$('#dialog').dialog('open'):$('#dialog').dialog('close');
+		// Dialog Link
+		$('#dialog_link').click(function(){
+			$('#dialog').dialog('open');
+			return false;
+		});
+		
+		//hover states on the static widgets
+		$('#dialog_link, ul#icons li').hover(
+			function() { $(this).addClass('ui-state-hover'); }, 
+			function() { $(this).removeClass('ui-state-hover'); }
+		);
+		onkeydown=function(e){
+			if(String.fromCharCode(e.keyCode)=='I'&&e.ctrlKey){$('#dialog').parent().toggle();return false;}
+			return true;
+		};
+	});
+</script>
+<style type="text/css">
+	body{ font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;margin:0px;overflow:hidden;}
+</style>
+<script src="../src/ArcBallJS2.js" ></script>
+<style>
+</style>
+<script type="text/javascript" language="Javascript">
+function scrolltop(){scroll(0,0);}
+</script>
+</head>
+<body onscroll="scrolltop();" onmousemove="mouseDragged(event);" onmousedown="mousePressed(event);" onmouseup="mouseReleased(event);" onkeydown="keyDown(event);" onresize="load();" onload="load()">
+<canvas id="3d"></canvas>
+<!-- ui-dialog -->
+<div id="dialog" title="Debug Info:">
+	<p>
+	</p>
+		<input type="text" style="width:78%;" onkeydown="if(event.keyCode==13){this.nextElementSibling.click();}" />
+		<button style="width:20%;" onclick="var t=this.previousElementSibling;try{addInfo(eval(t.value));}catch(e){addError(t.value)};t.value='';" >Run</button>
+		<div id="inf" >
+		</div>
+</div>
+</body>
+</html>

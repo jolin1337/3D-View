@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Webworker</title>
+
+	<style type="text/css">
+		#content{
+			width:100%;
+			height:100%;
+			background:#f00;
+		}
+	</style>
+
+	<script src="src2/worker_Classes.js" ></script>
+	<script type="text/javascript">
+		var passed = new Quaternion(0,0,0,0);
+		function load(){
+			var dropZone = document.getElementById("content");
+
+			drop(dropZone, function(fileData) {
+				//fileData = objekt med filens information
+				if (fileData.type.indexOf('image') != -1){
+					var element = document.createElement('img');
+					element.src = fileData.read;
+
+				} else {
+					var element = document.createElement('code');
+					try{
+
+						var worker = new Worker("worker.js");
+						worker.onmessage = function(event){
+							/*for( var i in event.data){
+								if(typeof event.data[i] == 'object'){
+									element.innerHTML += "{<br/>";
+									for(var j in event.data[i])
+										element.innerHTML += j + " = "+ event.data[i][j] + ", ";
+									element.innerHTML += "<br/>}<br/>";
+								}
+								else
+									element.innerHTML += i + " = " + event.data[i] + "<br/>";
+							}*/
+							var obj = event.data;
+							var Faces = [];
+
+							var Face_indices = obj[2];
+							var vertices= obj[0];
+							var count_face = Face_indices[0].length;
+							var count_faces = Face_indices.length;
+
+							for(var i=0;i<vertices.length;i++){
+								vertices[i].position = new Vector(vertices[i].position).mult(300);
+							}
+							for(var i=0;i<count_faces;i++){
+								var ver = [];
+								
+								for(var j=0;j<count_face;j++){
+									ver.push(vertices[Face_indices[i][j]]);
+								}
+								Faces.push(new Face(ver));
+							}
+							var obj3D = new Object3D();
+							obj3D.position = new Vector();
+							obj3D.fillCol = new color(255,1,1);
+							obj3D.id = "Object3D." + fileData.name;
+							obj3D.Faces = Faces;
+							obj3D.constructor = obj3D;
+							//for(var i=0;i<scene.objects.length;i++)
+							//	scene.removeObject(i);
+							//scene.addObject(obj3D);
+							console.dir(obj3D);
+						};
+						worker.postMessage(fileData.read);
+
+						
+					}catch(e){
+						console.dir(e);
+					};
+					//console.log(obj3D.Faces[0].vertices[0].position);
+					//element.innerHTML = fileData.read.replace(/\n/g,'<br>');
+					//render();
+				}
+				dropZone.appendChild(element);
+			});
+			
+		}
+	</script>
+</head>
+<body onload="load();" >
+<h1>Here goes the content:</h1>
+<div id="content" >
+
+</div>
+</body>
+</html>
