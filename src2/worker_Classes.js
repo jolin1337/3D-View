@@ -155,16 +155,21 @@ Vector.angleBetween = function(v1, v2) {
 };
 
 var color=function(r,g,b){
-	if(arguments.length===3){
-		this.r=r||0;
-		this.g=g||r||0;
-		this.b=b||r||0;
+	if(arguments.length==3){
+		this.r = r || 0;
+		this.g = g || 0;
+		this.b = b || 0;
 	}
 	else if(arguments.length==1&&typeof r == "string"){
 		this.r=r[1]+r[2];
 		this.g=r[3]+r[4];
 		this.b=r[5]+r[6];
 	}
+	else if(arguments.length == 1)
+		this.r = this.g = this.b = r;
+	else
+		this.r = this.g = this.b = 0;
+	this.a = 1;
 	this.clone=function(){return new color(this.r,this.g,this.b);}
 	this.multiply=function(v){
 		v=v<=0?v*-1:v;
@@ -176,12 +181,12 @@ var color=function(r,g,b){
 	this.toStyle=function(undefined){
 		try{
 			if(ThemeView3D.opacity!==undefined)
-				return "rgba("+parseInt(this.r,10)%255+","+parseInt(this.g,10)%255+","+parseInt(this.b,10)%255+","+ThemeView3D.opacity+")";
+				return "rgba("+parseInt(this.r,10)%256+","+parseInt(this.g,10)%256+","+parseInt(this.b,10)%256+","+(this.a?this.a:ThemeView3D.opacity)+")";
 			else
 				throw "Error";
 		}
 		catch(e){
-			return "rgb("+parseInt(this.r,10)%255+","+parseInt(this.g,10)%255+","+parseInt(this.b,10)%255+")";	
+			return "rgba("+parseInt(this.r,10)%256+","+parseInt(this.g,10)%256+","+parseInt(this.b,10)%256 + "," + this.a + ")";	
 		}
 	};
 	this.toString=function(){
@@ -202,6 +207,7 @@ var Object3D = function(){
 	this.fillCol=null;
 	this.id="";
 	this.Faces=null;
+	this.constructor = this;
 };
 var Curve3D = function(){
 	this.position=null;

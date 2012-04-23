@@ -47,11 +47,46 @@ var Camera=function(pos,rot){
 	//this.quaternion	= new Quaternion(0,new Vector(0,0,0));
 };
 var Rendering=function(){
-	this.objects={};
 	var state = true;		// intersection doing one time calc(not implemented var)
 	var f=new Vector(0,0,10),v=new Vector(1,1,1);
 	//var view3D = view3D || {};
-	var scope = this;
+	var scope = this,
+		xMat = new Material(160,0,0),
+		yMat = new Material(0,160,0),
+		zMat = new Material(0,0,160),
+		defaultMat = new Material(12,12,12);
+	scope.objects={};
+	var grid = new (function(){
+		this.position=new Vector();
+		this.fillCol=new color(0,0,0);
+		this.strokeCol=this.fillCol;
+		this.id="Grid";
+		this.Faces=[];
+		this.constructor=new Object3D;
+	})();
+	if(grid!=null){
+		var steps = 12, lengthOfSteps = 50;
+		var length = steps*lengthOfSteps;
+		var f2 = new Face( new Vertex(-length/2,0,0), new Vertex(length/2,0,0) );
+		var f1 = new Face( new Vertex(0,-length/2,0), new Vertex(0,length/2,0) );
+		var f3 = new Face( new Vertex(0,0,-length/2), new Vertex(0,0,length/2) );
+		f2.material = yMat;
+		f1.material = xMat;
+		f3.material = zMat;
+		grid.Faces.push(f2);
+		grid.Faces.push(f1);
+		grid.Faces.push(f3);
+		for(var i = -length/2;i<=length/2;i+=lengthOfSteps){
+			if(i != 0){
+				f1 = new Face( new Vertex(i,-length/2,0), new Vertex(i,length/2,0) );
+				f2 = new Face( new Vertex(-length/2,i,0), new Vertex(length/2,i,0) );
+				f1.material = defaultMat;
+				f2.material = defaultMat;
+				grid.Faces.push(f1);
+				grid.Faces.push(f2);
+			}
+		}
+	}
 
 	function projectPolygons(P, f,s,l,obj){
 		if(P instanceof Array){
@@ -353,7 +388,9 @@ var Rendering=function(){
 								vert[j].color = vert[j].color.clone().multiply(vert[j].light).toStyle();
 							}
 							else if( !vert[j].color.image.complete )
-								vart[j].color = "#ff0000";
+								vert[j].color = "#ff0000";
+							else
+								vert[j].color = vert[j].color.toStyle();
 							// ### CALCULATE THE NORMALS IF THEY WILL BE SHOWN ###
 							if( ThemeView3D.drawNormals == true ){
 								if(view3D && view3D.ii)
@@ -362,6 +399,8 @@ var Rendering=function(){
 								vert[j].normal.mult(ThemeView3D.normalLength);
 							}
 						}
+						else
+							vert[j].color = vert[j].color.toStyle();
 
 						if(view3D && view3D.ii)
 							vert[j].position=scope.project(vert[j].position,f).mult(1);
@@ -565,9 +604,7 @@ var Rendering=function(){
 						faceSelected++;
 					if( edgeSelected !== false && P[k].vertices[j].activeVertex )
 						edgeSelected++;
-					if((P[k].vertices[j].screen.x+length.x>=-innerWidth/2&&P[k].vertices[j].screen.x-length.x<=innerWidth/2&&
-							P[k].vertices[j].screen.y+length.y>=-innerHeight/2&&P[k].vertices[j].screen.y-length.y<=innerHeight/2))
-						context.lineTo(P[k].vertices[j].screen.x, P[k].vertices[j].screen.y);
+					context.lineTo(P[k].vertices[j].screen.x, P[k].vertices[j].screen.y);
 				}
 
 				context.closePath();
@@ -655,22 +692,36 @@ var Rendering=function(){
 			context.moveTo(P[k-1].screen.x,P[k-1].screen.y);
 			context.closePath();
 		}
+		scene.SpaceView3D = scene.SpaceView3D || {};
+		var show_floor =  grid != null && scene.SpaceView3D.show_floor;
+		if( grid != null && show_floor ){
+			if( scene.SpaceView3D.show_axis_x )
+				grid.Faces[0].material = xMat;
+			else grid.Faces[0].material = defaultMat;
+			if( scene.SpaceView3D.show_axis_y )
+				grid.Faces[1].material = yMat;
+			else grid.Faces[1].material = defaultMat;
+			if( scene.SpaceView3D.show_axis_z )
+				grid.Faces[2].material.a = 1;
+			else grid.Faces[2].material.a = 0;
+			scene.addObject(grid);
+		}
 		var proj=this.projection(scene,camera);
 		for(var b=proj[0].length,i=0;i<b;i++){
 			var p=proj[1][i].color;	//color mesh
 			var P=proj[0][i],		//Faces
 				L=scene.lights[0];	//lights
-			if (context){
+			if (context && P.length){
 				if( P[0].vertices && P[0].vertices.length > 0 ) {
 					context.lineWidth = ThemeView3D.outlineWidth;
 					for (var k=0;k<P.length;k++){
 						if( !P[k].vertices || P[k] instanceof Face == false ) continue;
 						/** ### INIT COLORS ### **/
 						context.strokeStyle=ThemeView3D.wire||"#ccc";
-						if(!(P[k].color.image && P[k].color.image.complete ) && P[k].vertices.length>2 ) 
-							context.fillStyle=P[k].color || "#ccc",
-							context.strokeStyle=P[k].color || "#ccc";
-						else context.fillStyle="rgba(255,255,255,1)";
+						context.fillStyle="rgba(255,255,255,1)";
+						if(!(P[k].color.image && P[k].color.image.complete ) ) 
+							context.fillStyle=P[k].vertices.length>2?P[k].color || "#ccc":"rgba(255,255,255,1)",
+							context.strokeStyle=P[k].color;
 
 						/** ### END INIT COLORS END ### **/
 
@@ -829,7 +880,7 @@ var Rendering=function(){
 						else if( mode == "dot-mode" ) 
 							drawDots( P, k );
 						else {
-							if(mode != "objecmode")
+							if(mode != "objectmode")
 								console.log( "THE MODE: "+mode+", IS NOT SUPPORTED!",
 									"Drawing default mode (objecmode instead)" );
 
@@ -951,6 +1002,10 @@ var Rendering=function(){
 				}
 				/** ### END Draw Cursor ### **/
 			}
+		}
+
+		if( show_floor ){
+			scene.removeObject(scene.objects.length-1);
 		}
 	};
 };

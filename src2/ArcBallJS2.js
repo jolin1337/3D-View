@@ -40,6 +40,8 @@ Light.prototype={
 };
 var canvas,context;
 var scene,camera,renderer;
+
+var nav_frame_renderer, nav_frame_scene;
 function load(e){
 
 	if(self['window']){
@@ -57,6 +59,25 @@ function load(e){
 		scene = new Scene();
 		camera = new Camera();
 		renderer = new Rendering();
+
+		nav_frame_scene = new Scene();
+		nav_frame_scene.SpaceView3D = null;
+		nav_frame_renderer = new Rendering();
+		var line = new Object3D();
+		var size = 25;
+		line.Faces = [
+			new Face( new Vertex(size,0,0), new Vertex(0,0,0) ),
+			new Face( new Vertex(0,size,0), new Vertex(0,0,0) ),
+			new Face( new Vertex(0,0,size), new Vertex(0,0,0) )
+		];
+		line.fillCol = new color(255,255,255);
+		line.id = "random";
+		line.position = new Vector();
+		line.Faces[0].material = new Material(255,0,0);
+		line.Faces[1].material = new Material(0,255,0);
+		line.Faces[2].material = new Material(0,0,255);
+		nav_frame_scene.addObject(line);
+		scene.addObject(line);
 
 		mouseRay = new Ray();
 		mouseRay.shape = "Circle";
@@ -83,6 +104,10 @@ function load(e){
 	context.translate(canvas.width/2 -( prop&&prop.style.display == "block"?prop.offsetWidth/2:0 ),canvas.height/2);
 	cantext.translate(can.width/2 -( prop&&prop.style.display == "block"?prop.offsetWidth/2:0 ),can.height/2);
 	camera.quaternion = current_quaternion;
+	var temp = context;
+	context = document.getElementById('navigaor').getContext("2d");
+	context.translate(25,25);
+	context = temp;
 	render();
 
 	return canvas;
@@ -145,7 +170,7 @@ var HAS_DRAGED = false;
 /**
  * En array med de punkter som är valda av användaren
  */
- var active_vertices = [];
+var active_vertices = [];
 
 /*=========================== ACTIONS =======================================================================*/
 /**
@@ -230,7 +255,7 @@ function mouseReleased(mouse){
 			));
 		render();
 	}
-	else if( !GRAB_FLAG && !HAS_DRAGED && mouse.button == 2 ) {
+	else if( !GRAB_FLAG && !HAS_DRAGED && mouse.button == 2 && view3D.MODE == "editmode" ) {
 		var v = new Vector(mouse.clientX - canvas.width/2 -( prop&&prop.style.display == "block"?prop.offsetWidth/2:0 ),mouse.clientY - canvas.height/2,500);
 		//scene.objects[0].Faces[0].vertices[0].position = v;
 		if((v=selection(v))) {
@@ -279,7 +304,12 @@ function keyDown(key){
 				camera.quaternion=current_quaternion=goal_quaternions[0];
 				break;
 			case 101:	// 5 btn
-				view3D.view_persportho();
+				view3D.perspectiveOtho();
+				break;
+			case 9: 	// tab
+				view3D.toggle("MODE","objectmode","editmode");
+				key.preventDefault();
+
 				break;
 			case key.DOM_VK_N:
 				if( prop != null){
@@ -368,6 +398,11 @@ function init(){
 }
 function render(){  
 	if(context){
+		var temp = context;
+		context = document.getElementById('navigaor').getContext("2d");
+		context.clearRect(-25,-25,50,50);
+		nav_frame_renderer.render(nav_frame_scene,camera,{mode: view3D["MODE"]});
+		context = temp;
 		context.clearRect(
 			-innerWidth/2 +( prop&&prop.style.display == "block"?prop.offsetWidth/2:0 ),
 			-innerHeight/2,

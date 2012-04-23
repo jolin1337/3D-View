@@ -298,6 +298,12 @@
 		-ms-transition:all 1s ease-in-out;
 		transition:all 1s ease-in-out;
 	}
+	#navigaor{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: transparent;
+	}
 </style>
 <style id="styleObjects" >
 </style>
@@ -351,6 +357,7 @@ function scrolltop(){scroll(0,0);}
 		</svg>-->
 		<canvas id="test" onselectstart="return false;" ></canvas>	
 		<canvas id="View"></canvas>	
+		<canvas id="navigaor" width=50 height=50 ></canvas>	
 		</div>
 
 <div id="props">

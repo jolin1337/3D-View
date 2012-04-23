@@ -399,8 +399,8 @@ var SpaceView3D={
 	region_3d:null,
 	region_quadview:null,
 	show_all_objects_origin:false,
-	show_axis_x:false,
-	show_axis_y:false,
+	show_axis_x:true,
+	show_axis_y:true,
 	show_axis_z:false,
 	show_background_images:false,
 	show_floor:false,
@@ -419,7 +419,13 @@ var SpaceView3D={
 var view3D={
 	ii:true,
 	perspectiveOtho:function(){
-		ii=(ii==true?false:true);
+		view3D.ii=(view3D.ii==true?false:true);
 	},
-	MODE:"editmode"
+	MODE:"objectmode",	// editmode, objectmode
+	toggle:function(str,v1,v2){
+		if(v1)
+			view3D[str] = (view3D[str] == v1?(v2?v2:v1):v1);
+		else
+			view3D[str] = (view3D[str]?false:true);
+	}
 };
